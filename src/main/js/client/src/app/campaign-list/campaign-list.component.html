@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-title>Campaign List</mat-card-title>
+  <mat-card-content>
+    <h2 mat-line>Current budget: {{budget}}</h2>
+    <div fxLayout="row wrap">
+      <mat-card class="example-card" *ngFor="let campaign of campaigns">
+        <mat-card-header>
+          <mat-card-title>{{campaign.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+          <p>Bid: {{campaign.bid}}
+          <p>Fund: {{campaign.fund}}
+          <p>Radius: {{campaign.radius}} km
+          <p>Town: {{campaign.town}}
+          <p>Keyword: {{campaign.keyword}}
+          <p>Status: {{campaign.status ? 'On' : 'Off'}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-stroked-button [routerLink]="['/campaign-edit', campaign.id]">EDIT</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card-content>
+
+  <button mat-flat-button color="primary" [routerLink]="['/campaign-add']">Add</button>
+</mat-card>
